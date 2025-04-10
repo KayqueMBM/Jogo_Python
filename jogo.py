@@ -16,14 +16,15 @@ alien = pygame.image.load('imagens/alien.png').convert_alpha()
 alien = pygame.transform.scale(alien, (50, 50))
 
 nave = pygame.image.load('imagens/nave.png').convert_alpha()
-nave = pygame.transform.scale(nave, (50, 50)) # Conversão de tamanho da nave
-nave = pygame.transform.rotate(nave, -90)
+nave = pygame.transform.scale(nave, (100, 100)) # Conversão de tamanho da nave
+nave = pygame.transform.rotate(nave, 0) 
 
+# Posições iniciais
 pos_alien_x = 500
 pos_alien_y = 300
 
-pos_nave_x = 200
-pos_nave_y = 300
+pos_nave_x = 640
+pos_nave_y = y - 100
 
 
 # Variável para movimento vertical
@@ -47,10 +48,10 @@ while rodando:
 
     # Teclas
     tecla = pygame.key.get_pressed()
-    if tecla[pygame.K_UP] and pos_nave_y > 1:
-        pos_nave_y -= 2
-    if tecla[pygame.K_DOWN] and pos_nave_y < 665:
-        pos_nave_y += 2
+    if tecla[pygame.K_LEFT] and pos_nave_x > 1:  # Movimento para a esquerda
+        pos_nave_x -= 3
+    if tecla[pygame.K_RIGHT] and pos_nave_x < x - 80:  # Movimento para a direita
+        pos_nave_x += 3
     
     # Movimento do cenario no eixo vertical
     scroll_y += 1
